@@ -1,0 +1,9 @@
+Contact List:
+
+John Doe - john.doe@example.com
+Jane Smith - jane.smith@gmail.com
+Grant Copeland - grantbcopeland@gmail.com
+Coding Templer - CodingPerson@codingtemple.com
+User - User12390!@yahoo.com
+
+For inquiries, please contact info@example.com
