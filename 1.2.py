@@ -8,18 +8,18 @@ def list_directory_contents(path):
             if item.is_file():
                 print(f"File: {item.name}")
                 file_size = os.path.getsize(item)
-                print(f"> File Size in Bytes is {file_size}")
+                print(f"> [{item.name}] file size in Bytes is {file_size}")
             if item.is_dir():
                 print(f"\nFolder: {item.name}")
                 file_size = os.path.getsize(item)
-                print(f"> File Size in Bytes is {file_size}")
+                print(f"> [{item.name}] file size in Bytes is {file_size}")
                 folder = item.name
                 for subitem in os.scandir(item):
                     if subitem.is_file():
                         print(f"{folder} File: {subitem.name}")
-                        file_size = os.path.getsize(item)
-                        print(f"> File Size in Bytes is {file_size}")
-                
+                        file_size = os.path.getsize(subitem)
+                        print(f"> [{subitem.name}] file size in Bytes is {file_size}")
+        
     except FileNotFoundError:
         print("Path not found. Please try again.")
     except PermissionError:
@@ -34,17 +34,17 @@ def list_directory_contents(path):
                     if item.is_file():
                         print(f"File: {item.name}")
                         file_size = os.path.getsize(item)
-                        print(f"> File Size in Bytes is {file_size}")
+                        print(f"> [{item.name}] file size in Bytes is {file_size}")
                     if item.is_dir():
                         print(f"Folder: {item.name}")
                         file_size = os.path.getsize(item)
-                        print(f"> File Size in Bytes is {file_size}")
+                        print(f"> [{item.name}] file size in Bytes is {file_size}")
                         folder = item.name
                         for subitem in os.scandir(item):
                             if subitem.is_file():
                                 print(f"{folder} File: {subitem.name}")
-                                file_size = os.path.getsize(item)
-                                print(f"> File Size in Bytes is {file_size}")
+                                file_size = os.path.getsize(subitem)
+                                print(f"> {subitem.name} file size in Bytes is {file_size}")
             except FileNotFoundError:
                 print("Path not found. Please try again.")
             except PermissionError:

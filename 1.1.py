@@ -1,9 +1,6 @@
 import os
 
-
-# path = input("Please enter the directory path to see files and subdirectories. ")
 path = input("Enter the directory to see files and subdirectories: ")
-
 
 def list_directory_contents(path):
     try:
