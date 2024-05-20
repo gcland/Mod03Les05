@@ -7,10 +7,16 @@ path = input("Enter the directory to see files and subdirectories: ")
 
 def list_directory_contents(path):
     try:
-        dir_list1 = os.scandir(path)
-        print(f"Files within {path} are: ")
-        for file in dir_list1:
-            print(file)
+        for item in os.scandir(path.lower()):
+            if item.is_file():
+                print(f"File: {item.name}")
+            if item.is_dir():
+                print(f"Folder: {item.name}")
+                folder = item.name
+                for subitem in os.scandir(item):
+                    if subitem.is_file():
+                        print(f"{folder} File: {subitem.name}")
+                
     except FileNotFoundError:
         print("Path not found. Please try again.")
     except PermissionError:
@@ -21,10 +27,15 @@ def list_directory_contents(path):
         if again.lower() == "yes":
             try:
                 path = input("Enter the directory to see files and subdirectories: ")
-                dir_list1 = os.listdir(path)
-                print(f"Files within {path} are: ")
-                for file  in dir_list1:
-                    print(file)
+                for item in os.scandir(path.lower()):
+                    if item.is_file():
+                        print(f"File: {item.name}")
+                    if item.is_dir():
+                        print(f"Folder: {item.name}")
+                        folder = item.name
+                        for subitem in os.scandir(item):
+                            if subitem.is_file():
+                                print(f"{folder} File: {subitem.name}")
             except FileNotFoundError:
                 print("Path not found. Please try again.")
             except PermissionError:
